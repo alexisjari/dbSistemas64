@@ -16,8 +16,8 @@ public interface Persistencia {
     public void actualizar(Object object)throws Exception;
     public void habilitar(Object object)throws Exception;
     public void deshabilitar(Object object)throws Exception;
-    public boolean siExiste(int id) throws Exception;
     
+    public boolean siExiste(int id) throws Exception;
     public ArrayList lista()throws Exception;
     public Object buscar(String codigo) throws Exception;
     

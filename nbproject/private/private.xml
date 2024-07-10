@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/controlador/Controlador.java</file>
+            <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/controlador/jdlgMenu.java</file>
             <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/modelo/dbProducto.java</file>
             <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/modelo/dbManejador.java</file>
+            <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/Vista/jifProductos.java</file>
             <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/modelo/Persistencia.java</file>
-            <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/modelo/Productos.java</file>
             <file>file:/C:/Users/52667/Documents/NetBeansProjects/DB/src/modelo/TestDbProductos.java</file>
         </group>
     </open-files>

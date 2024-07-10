@@ -5,33 +5,57 @@ import javax.swing.JOptionPane;
 
 public class TestDbProductos {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         // TODO code application logic here
         dbProducto db = new dbProducto();
         
-        if (db.conectar()){
-            System.out.println("Fue posible conectarse");
+        if(db.conectar()){
+            System.out.println("fue posible conectarse");
             
+            //insetar
             Productos pro = new Productos();
-            pro.setCodigo("1000");
-            pro.setNombre("Atun");
-            pro.setPrecio(10.50f);
-            pro.setStatus(0);
+            pro.setCodigo("200");
+            pro.setNombre("pollo");
+            pro.setPrecio(25.50f);
+            pro.setStatus(2);
             
-            try {
+            try{
             db.insertar(pro);
             JOptionPane.showMessageDialog(null, "se agrego con exito");
-            } catch (Exception e){
-                
-                JOptionPane.showMessageDialog(null, "Surgio un error " + e.getMessage());
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "surgio un error" + e.getMessage());
             }
-                
+            
+            
+            //actualizar 
+            pro.setNombre("caja de atun");
+            pro.setPrecio(15.00f);
+            pro.setStatus(3);
+
+            try {
+                db.actualizar(pro);
+                JOptionPane.showMessageDialog(null, "Se actualizó con éxito");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Surgió un error: " + e.getMessage());
+            }
+            
+            //buscar
+            try{
+                pro.setCodigo("200");
+                pro = (Productos) db.buscar(pro.getCodigo());
+                JOptionPane.showMessageDialog(null, pro.getNombre()+ "," + pro.getPrecio());
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "surgio un error" + e.getMessage());
+            }
+           
         }
         
         
+    
+  
     }
+    
+    
+    
     
 }
