@@ -26,6 +26,7 @@ public class Controlador implements ActionListener {
     private jifProductos vista ;
     private dbProducto db;
     private boolean EsActualizar;
+    private int idProducto = 0;
 
     public Controlador(jifProductos vista, dbProducto db) {
         this.vista = vista;
@@ -106,9 +107,7 @@ public class Controlador implements ActionListener {
       if (ae.getSource()==vista.btnGuardar){
       if (ae.getSource()==vista.btnDeshabilitar)   
           //Validacion
-          
-          
-          
+
           if (this.validar()){
               Productos pro = new Productos();
               pro.setCodigo(vista.txtCodigo.getText());
@@ -124,10 +123,8 @@ public class Controlador implements ActionListener {
                   JOptionPane.showMessageDialog(vista, "Se agrego con exito el tipo de producto");
                   this.limpiar(); 
                   this.deshabilitar();
+                  this.ActualizarTabla(db.lista());
                   //Acutlizar Tabla()
-                  
-                  
-                  
                   
               }else {
                   pro.setIdProductos(idProducto);
@@ -186,7 +183,7 @@ public class Controlador implements ActionListener {
             //deshabilitar
        if (ae.getSource()==vista.btnDeshabilitar){
            int opcion = 0;
-           opcion = JOptionPane.showMessageDialog(vista, "Deseas deshabilitar el producto","Producto",
+           opcion = JOptionPane.showConfirmDialog(vista, "Deseas deshabilitar el producto","Producto",
                     JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
            
            if(opcion == JOptionPane.YES_OPTION){
@@ -199,6 +196,7 @@ public class Controlador implements ActionListener {
                    JOptionPane.showMessageDialog(vista, "el producto fue deshabilitado");
                    this.limpiar();
                    this.deshabilitar();
+                   this.ActualizarTabla(db.lista());
                    //actualizar la tabla
                    
        }catch(Exception e){

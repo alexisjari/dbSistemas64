@@ -39,9 +39,21 @@ public class dbProducto extends dbManejador implements Persistencia{
     public void actualizar(Object object) throws Exception {
        Productos pro = new Productos();
        pro = (Productos)object;
-       String consulta = "";
-       consulta = "update productos ";
-       
+        String consulta = "";
+        consulta = "update productos set codigo = ?, nombre = ?, fecha=?, precio =?"
+                + "where idProducto = ? and status = 0";
+        
+        if(this.conectar()){
+            this.sqlConsulta = this.conexion.prepareStatement(consulta);
+            this.sqlConsulta.setString(1, pro.getCodigo());
+            this.sqlConsulta.setString(2, pro.getNombre());
+            this.sqlConsulta.setString(3, pro.getFecha());
+            this.sqlConsulta.setFloat(4, pro.getPrecio());
+            this.sqlConsulta.setInt(5, pro.getIdProductos());
+            
+            this.sqlConsulta.executeUpdate();
+            this.desconectar();
+        }
     }
 
     @Override
@@ -102,11 +114,12 @@ public class dbProducto extends dbManejador implements Persistencia{
             
             while(registros.next()){
             Productos pro = new Productos();
+            
                 pro.setCodigo(registros.getString("codigo"));
                 pro.setNombre(registros.getString("nombre"));
                 pro.setPrecio(registros.getInt("precio"));
                 pro.setFecha(registros.getString("fecha"));
-                pro.setIdProductos(registros.getInt("idCodigo"));
+                pro.setIdProductos(registros.getInt("idProducto"));
                 pro.setStatus(registros.getInt("status"));               
                 
                 //agrarlo al arrylist
@@ -147,7 +160,7 @@ public class dbProducto extends dbManejador implements Persistencia{
      
         }
 
-          return pro;
+        return pro;
     }
     
     
