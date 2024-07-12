@@ -42,6 +42,7 @@ public abstract class dbManejador {
         
         try {
             Class.forName(drive);
+            exito = true;
             
         } catch(ClassNotFoundException e){
             System.out.println("surgio un error algo maloso " + e.getMessage());

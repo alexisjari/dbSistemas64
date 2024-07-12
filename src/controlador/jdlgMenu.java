@@ -6,6 +6,8 @@
 package controlador;
 
 import javax.swing.JOptionPane;
+import static java.awt.SystemColor.control;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -96,8 +98,7 @@ public class jdlgMenu extends javax.swing.JDialog {
             Vista.jifProductos vista = new Vista.jifProductos();
             this.Pantalla.add(vista);
             Controlador control = new Controlador(vista,db);
-            control.iniciarVista();
-            
+            control.IniciarVista();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,"surgio un error se cerrara la apicacion" + e.getMessage() );

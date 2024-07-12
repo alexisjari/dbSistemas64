@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 public class dbProducto extends dbManejador implements Persistencia{
@@ -32,13 +33,13 @@ public class dbProducto extends dbManejador implements Persistencia{
                 
             }
             
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void actualizar(Object object) throws Exception {
        Productos pro = new Productos();
        pro = (Productos)object;
+       
         String consulta = "";
         consulta = "update productos set codigo = ?, nombre = ?, fecha=?, precio =?"
                 + "where idProducto = ? and status = 0";
@@ -151,7 +152,7 @@ public class dbProducto extends dbManejador implements Persistencia{
               pro.setNombre(registros.getString("nombre"));
               pro.setPrecio(registros.getInt("precio"));
               pro.setFecha(registros.getString("fecha"));
-              pro.setIdProductos(registros.getInt("idCodigo"));
+              pro.setIdProductos(registros.getInt("idProducto"));
               pro.setStatus(registros.getInt("status"));
               
           }      
